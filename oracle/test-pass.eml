@@ -1,0 +1,85 @@
+Delivered-To: pilucky314@gmail.com
+Received: by 2002:a05:651c:2010:b0:2c5:15dc:2773 with SMTP id s16csp119311ljo;
+        Thu, 9 Nov 2023 20:20:53 -0800 (PST)
+X-Received: by 2002:a67:e0c6:0:b0:45d:9376:a873 with SMTP id m6-20020a67e0c6000000b0045d9376a873mr7037691vsl.29.1699590052916;
+        Thu, 09 Nov 2023 20:20:52 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1699590052; cv=none;
+        d=google.com; s=arc-20160816;
+        b=ENz6VQsj6QnKiTaBa5Ma1OHJtKU9PFxLV8IY6Og4MLkThx7YUIKK904WzBfjI9Huoz
+         ChNt+PBfj5v0FotXtqaV42JB7XzINCPb5n+YjF/+jNK2j9R9hHow4XFqY9N2eG91a0Hw
+         zljY1sKJo6ng4wt7m/sOo9BGC+YbaSQs/tENNMsDjd4b2hKfvlOlXgoQb1yYiztYJfaA
+         cEQjPJBqnlrMzXY6MkFINBTdw8zJQfKUYobREIFHJvij1JSjFWtjgzx8Qukk37q9IqWz
+         3qrp7BRXU/3rlsaszObzvwz8JYXLIJJgC+IygnR74qcs46JUDl2nS39d2iPNNiFF17g5
+         5f8Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=CCz3WZP/tiPKc+rnB9IjLAdGUJPyDT7p3FWeIqxJyOo=;
+        fh=PrPiaEDFUVa77fidcfiEYQggLE+i+QoX2wqht7U2huc=;
+        b=TIFEXTNFzCdKULAmoleda1WFGHw2rkYAaUIss8rjjVuJxWeDqksjGS3FmLPP30V2JI
+         bQOh4C9h6ZYpRw4tfypylmkiJahdopqeAuoli9rwBr09jSk7hWybjQd4Y0HKLoWdFcoY
+         4R6+tkYoM1el6wGUDPlGum3Ctk2hdPwM5BnT7Xm6i68pGbJozYJvB0MRy98jYDXLjIAB
+         ppUVsfdEn5IF/+vNaAZlAACDUXq+ediINVkwcKWtV5ccFlVnA0vD44O3E2E6l4e50GZH
+         9hVDpH5mp310AvkwAKgs41vcEoTxVeHBTnRIKil7DFVSOUseDeseB25/YKZIvOvQ/JO4
+         qAXw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="REocRo/D";
+       spf=pass (google.com: domain of 0xstruct@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=0xstruct@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <0xstruct@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id p6-20020a05610223e600b004576f5c27easor5186860vsc.9.2023.11.09.20.20.52
+        for <pilucky314@gmail.com>
+        (Google Transport Security);
+        Thu, 09 Nov 2023 20:20:52 -0800 (PST)
+Received-SPF: pass (google.com: domain of 0xstruct@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b="REocRo/D";
+       spf=pass (google.com: domain of 0xstruct@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=0xstruct@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1699590052; x=1700194852; dara=google.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=CCz3WZP/tiPKc+rnB9IjLAdGUJPyDT7p3FWeIqxJyOo=;
+        b=REocRo/DUbha26J2TWkL07wtSkXYL3M9pWJoI68GgoftpBSTqKmsw6is1MiHGu877a
+         x8T7J+3tV2AkUumXWk2wO2dCUPPlOrhjcfUwmVsnJmV0qTtMH2JFf0cKD7WYY29lgTgM
+         kf2wAEiMmg546D/ldXgrybsAp/ioxwmasnFW4AwGxpHUAXqBfZ9OI0daqx/wHvksH6F8
+         vgqx40OHqSrB2Y6KKNV1xZXmNhqW+fDTTRQ6IHv3MabhP7eJtPoJKa0qddlOby60i2p8
+         RTRjY4Qxg+BZZyge4/rxQogaHlgB4j+cQC83DqzGN7B0JzoUnOPTs3NtdcVYHeTIsaeg
+         60Dw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1699590052; x=1700194852;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=CCz3WZP/tiPKc+rnB9IjLAdGUJPyDT7p3FWeIqxJyOo=;
+        b=IKseDvx/fr1do+weiULl1JKSPuwjqN0jLou6tMPG2bPN2rDyvrdc+R6GeEHMYbU18H
+         jX1fcst5XM1MhI8G5SGHz6HLyZodgY4JGLOjZFdwZq1bwN57x6Maa0/x+NwZNB3rp8NC
+         zVounCYpWIiCMiwlf71cwp64Te34jsknu72cb0GlmJ79PZCv6VynXAD28qCPMPqwN9f1
+         rxPeRmjCgwnsjyXeYC1EECN9LxwUANzjKRowuDHQjyatvLGN5FWW2GVkJFCVrKcGP2Rf
+         GqYFAvohRpIDRPI/F1HF8DkCE24mhVKqBSiDnTEqSnaHP9TSzJQEHD43F+fG4cJ6L1Tp
+         fH+Q==
+X-Gm-Message-State: AOJu0YxTpPlDiAweEpUvCONWz3Fkw1spASPNUBgoz7eMcdX741THV0vl
+	Dq6TMHz3JlDCloVqAjpCPHKAKFIJVxuz3RbeO1tRiSpv8iI=
+X-Google-Smtp-Source: AGHT+IET+60mOZY3o768wW8MQBc8Qk73UQ22A/clVFd2N+FPr+v4eHA1gqNTIMibYTVcvqoebtt+kqODu0rknthL5aw=
+X-Received: by 2002:a05:6102:104a:b0:45d:89a1:ac97 with SMTP id
+ h10-20020a056102104a00b0045d89a1ac97mr6571159vsq.18.1699590052217; Thu, 09
+ Nov 2023 20:20:52 -0800 (PST)
+MIME-Version: 1.0
+From: 0xStruct Web3 <0xstruct@gmail.com>
+Date: Fri, 10 Nov 2023 10:50:41 +0630
+Message-ID: <CAHSQbUPQ7H_W8+O8-LPcwP5j1SWzAbv1FYg=zVORgLCH0COABA@mail.gmail.com>
+Subject: send 10 $mina
+To: pilucky314@gmail.com
+Content-Type: multipart/alternative; boundary="0000000000005388250609c4a5cc"
+
+--0000000000005388250609c4a5cc
+Content-Type: text/plain; charset="UTF-8"
+
+claim your $mina at https://claim-mina.app with the proof of this email
+
+--0000000000005388250609c4a5cc
+Content-Type: text/html; charset="UTF-8"
+
+<div dir="ltr">claim your $mina at <a href="https://claim-mina.app">https://claim-mina.app</a> with the proof of this email</div>
+
+--0000000000005388250609c4a5cc--
