@@ -70,10 +70,13 @@ Please refer to `contracts` and `oracle` folders for code. Each folder has its o
 
 For quick overview, refer to `GUIDE.md` for walkthrough video and further explanations.
 
-## Next steps
+## Tasks and Next steps
+
+Please refer to `TASKS.md` for completed and planned tasks
 
 - Oracle V2: client-side Oracle for full privacy?
 - Could oracle be decentralized as well?
 - Turn the oracle into a SDK for various use cases
 - Build more **Mina Email** apps (templates)
     - Mina P2P commerce, Mina Email wallet, etc
+
