@@ -4,33 +4,33 @@ import Image from 'next/image.js';
 import { useEffect } from 'react';
 import GradientBG from '../components/GradientBG.js';
 import styles from '../styles/Home.module.css';
-import heroMinaLogo from '../../public/assets/hero-mina-logo.svg';
+import minaEmailLogo from '../../public/assets/mina-email.png';
 import arrowRightSmall from '../../public/assets/arrow-right-small.svg';
 
 export default function Home() {
-  useEffect(() => {
-    (async () => {
-      const { Mina, PublicKey } = await import('o1js');
-      const { Add } = await import('../../../contracts/build/src/');
+  // useEffect(() => {
+  //   (async () => {
+  //     const { Mina, PublicKey } = await import('o1js');
+  //     const { Add } = await import('../../../contracts/build/src/');
 
-      // Update this to use the address (public key) for your zkApp account.
-      // To try it out, you can try this address for an example "Add" smart contract that we've deployed to
-      // Berkeley Testnet B62qkwohsqTBPsvhYE8cPZSpzJMgoKn4i1LQRuBAtVXWpaT4dgH6WoA.
-      const zkAppAddress = '';
-      // This should be removed once the zkAppAddress is updated.
-      if (!zkAppAddress) {
-        console.error(
-          'The following error is caused because the zkAppAddress has an empty string as the public key. Update the zkAppAddress with the public key for your zkApp account, or try this address for an example "Add" smart contract that we deployed to Berkeley Testnet: B62qkwohsqTBPsvhYE8cPZSpzJMgoKn4i1LQRuBAtVXWpaT4dgH6WoA'
-        );
-      }
-      //const zkApp = new Add(PublicKey.fromBase58(zkAppAddress))
-    })();
-  }, []);
+  //     // Update this to use the address (public key) for your zkApp account.
+  //     // To try it out, you can try this address for an example "Add" smart contract that we've deployed to
+  //     // Berkeley Testnet B62qkwohsqTBPsvhYE8cPZSpzJMgoKn4i1LQRuBAtVXWpaT4dgH6WoA.
+  //     const zkAppAddress = '';
+  //     // This should be removed once the zkAppAddress is updated.
+  //     if (!zkAppAddress) {
+  //       console.error(
+  //         'The following error is caused because the zkAppAddress has an empty string as the public key. Update the zkAppAddress with the public key for your zkApp account, or try this address for an example "Add" smart contract that we deployed to Berkeley Testnet: B62qkwohsqTBPsvhYE8cPZSpzJMgoKn4i1LQRuBAtVXWpaT4dgH6WoA'
+  //       );
+  //     }
+  //     //const zkApp = new Add(PublicKey.fromBase58(zkAppAddress))
+  //   })();
+  // }, []);
 
   return (
     <>
       <Head>
-        <title>Mina zkApp UI</title>
+        <title>Mina Email zkApp UI</title>
         <meta name="description" content="built with o1js" />
         <link rel="icon" href="/assets/favicon.ico" />
       </Head>
@@ -44,10 +44,9 @@ export default function Home() {
             >
               <Image
                 className={styles.logo}
-                src={heroMinaLogo}
+                src={minaEmailLogo}
                 alt="Mina Logo"
-                width="191"
-                height="174"
+                width="80"
                 priority
               />
             </a>
@@ -56,19 +55,21 @@ export default function Home() {
               <code className={styles.code}> o1js</code>
             </p>
           </div>
+          <h2>Welcome to <b>Mina Email</b>!</h2>
+          <br />
           <p className={styles.start}>
-            Get started by editing
-            <code className={styles.code}> src/pages/index.js</code> or <code className={styles.code}> src/pages/index.tsx</code>
+            Leveraging email as verified credentials to unravel numerous use on Mina
           </p>
+          <br /><br />
           <div className={styles.grid}>
             <a
-              href="https://docs.minaprotocol.com/zkapps"
+              href="/verify"
               className={styles.card}
-              target="_blank"
+              target="_self"
               rel="noopener noreferrer"
             >
               <h2>
-                <span>DOCS</span>
+                <span>VERIFY</span>
                 <div>
                   <Image
                     src={arrowRightSmall}
@@ -79,16 +80,16 @@ export default function Home() {
                   />
                 </div>
               </h2>
-              <p>Explore zkApps, how to build one, and in-depth references</p>
+              <p>Get email verified for proof</p>
             </a>
             <a
-              href="https://docs.minaprotocol.com/zkapps/tutorials/hello-world"
+              href="/claim"
               className={styles.card}
-              target="_blank"
+              target="_self"
               rel="noopener noreferrer"
             >
               <h2>
-                <span>TUTORIALS</span>
+                <span>CLAIM</span>
                 <div>
                   <Image
                     src={arrowRightSmall}
@@ -99,47 +100,7 @@ export default function Home() {
                   />
                 </div>
               </h2>
-              <p>Learn with step-by-step o1js tutorials</p>
-            </a>
-            <a
-              href="https://discord.gg/minaprotocol"
-              className={styles.card}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <h2>
-                <span>QUESTIONS</span>
-                <div>
-                  <Image
-                    src={arrowRightSmall}
-                    alt="Mina Logo"
-                    width={16}
-                    height={16}
-                    priority
-                  />
-                </div>
-              </h2>
-              <p>Ask questions on our Discord server</p>
-            </a>
-            <a
-              href="https://docs.minaprotocol.com/zkapps/how-to-deploy-a-zkapp"
-              className={styles.card}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <h2>
-                <span>DEPLOY</span>
-                <div>
-                  <Image
-                    src={arrowRightSmall}
-                    alt="Mina Logo"
-                    width={16}
-                    height={16}
-                    priority
-                  />
-                </div>
-              </h2>
-              <p>Deploy a zkApp to Berkeley Testnet</p>
+              <p>Use proof to claim $Mina</p>
             </a>
           </div>
         </main>

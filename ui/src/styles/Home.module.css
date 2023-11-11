@@ -3,8 +3,8 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  padding: 5rem;
-  min-height: 100vh;
+  padding: 1rem;
+  min-height: 35vh;
 }
 
 .background {
@@ -68,7 +68,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(25%, auto));
+  grid-template-columns: repeat(2, minmax(50%, auto));
   width: var(--max-width);
   max-width: 100%;
   margin-bottom: 3rem;
@@ -140,6 +140,22 @@
   position: relative;
   mix-blend-mode: difference;
   filter: invert(0.7);
+}
+
+.textarea {
+  font-family: monospace;
+  padding: 0.6rem;
+  width: auto;
+  margin: 0 10rem;
+}
+
+.grid1 {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(100%, auto));
+  width: var(--max-width);
+  max-width: 100%;
+  margin-bottom: 3rem;
+  justify-items: center;
 }
 
 /* Enable hover only on non-touch devices */
