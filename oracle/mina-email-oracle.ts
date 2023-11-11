@@ -4,12 +4,14 @@ import { dkimVerify } from 'mailauth/lib/dkim/verify';
 import { parseHeaders } from 'mailauth/lib/tools';
 import { PrivateKey, Field, Signature, CircuitString, UInt32, Poseidon, Sign } from 'o1js';
 import fs from 'fs';
+var cors = require('cors');
 
 const dotenv = require('dotenv');
 dotenv.config({ path: './.env' });
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.get('/', (req: Request, res: Response) => {
 	const privateKey = PrivateKey.fromBase58(process.env.PRIVATE_KEY);
@@ -36,9 +38,9 @@ app.get('/test', async (req: Request, res: Response) => {
 	const messageId_regex = /\<(.*?)\@/gi;
 
 	for (let h of headers.parsed) {
-		if(h.key === 'from') from = from_regex.exec(h.line.toString())[1];
-		if(h.key === 'message-id') messageId = messageId_regex.exec(h.line.toString())[1];
-		if(h.key === 'subject') subject = h.line.toString().split(': ')[1];
+		if (h.key === 'from') from = from_regex.exec(h.line.toString())[1];
+		if (h.key === 'message-id') messageId = messageId_regex.exec(h.line.toString())[1];
+		if (h.key === 'subject') subject = h.line.toString().split(': ')[1];
 		//if(h.key === 'dkim-signature') console.log(h.line.toString());
 	}
 
@@ -62,7 +64,7 @@ app.get('/test', async (req: Request, res: Response) => {
 		console.log(info.startsWith('dkim=pass')); //pass, temperror, fail
 	}
 
-	res.send({ 
+	res.send({
 		message: `Mina Email Oracle - testing, check console log of the server`,
 	});
 });
@@ -81,9 +83,9 @@ app.get('/sign', async (req: Request, res: Response) => {
 	const messageId_regex = /\<(.*?)\@/gi;
 
 	for (let h of headers.parsed) {
-		if(h.key === 'from') from = from_regex.exec(h.line.toString())[1];
-		if(h.key === 'message-id') messageId = messageId_regex.exec(h.line.toString())[1];
-		if(h.key === 'subject') subject = h.line.toString().split(': ')[1];
+		if (h.key === 'from') from = from_regex.exec(h.line.toString())[1];
+		if (h.key === 'message-id') messageId = messageId_regex.exec(h.line.toString())[1];
+		if (h.key === 'subject') subject = h.line.toString().split(': ')[1];
 		//if(h.key === 'dkim-signature') console.log(h.line.toString());
 	}
 
@@ -101,7 +103,7 @@ app.get('/sign', async (req: Request, res: Response) => {
 	// Oracle Public and Private Key
 	const privateKey = PrivateKey.fromBase58(process.env.PRIVATE_KEY);
 	const publicKey = privateKey.toPublicKey();
-	
+
 	const amount = 1;
 
 	const emailHashCircuit = CircuitString.fromString(messageId);
@@ -109,7 +111,7 @@ app.get('/sign', async (req: Request, res: Response) => {
 	console.log('Poseidon hash: ', Poseidon.hash(signedDataFields).toString());
 
 	//const signature = Signature.create(privateKey, [Poseidon.hash(signedDataFields)]);
-	const signature = Signature.create(privateKey, [ Field(amount) ]); // need to figure out a way to pass Poseidon hash
+	const signature = Signature.create(privateKey, [Field(amount)]); // need to figure out a way to pass Poseidon hash
 
 	res.send({
 		data: { emailHash: messageId, amount: amount },
@@ -137,12 +139,11 @@ app.post('/', async (req: Request, res: Response) => {
 		console.log(info);
 
 		//pass, temperror, fail
-		if(info.startsWith('dkim=pass')) verifyFailed = false;
+		if (info.startsWith('dkim=pass')) verifyFailed = false;
 		else verifyFailedMessage = info.split(' ')[0];
 	}
 
-	if(verifyFailed === false) {
-		// get signature and amount
+	if (verifyFailed === false) {
 		// get email metadata such as to, from, subject
 		const headers = parseHeaders(email);
 
@@ -151,24 +152,29 @@ app.post('/', async (req: Request, res: Response) => {
 		const messageId_regex = /\<(.*?)\@/gi;
 
 		for (let h of headers.parsed) {
-			if(h.key === 'from') from = from_regex.exec(h.line.toString())[1];
-			if(h.key === 'message-id') messageId = messageId_regex.exec(h.line.toString())[1];
-			if(h.key === 'subject') subject = h.line.toString().split(': ')[1];
+			if (h.key === 'from') from = from_regex.exec(h.line.toString())[1];
+			if (h.key === 'message-id') messageId = messageId_regex.exec(h.line.toString())[1];
+			if (h.key === 'subject') subject = h.line.toString().split(': ')[1];
 			//if(h.key === 'dkim-signature') console.log(h.line.toString());
 		}
 
 		console.log('Email metadata: ', from, messageId, subject);
 
-		const emailHash = '';
-		const amount = '';
+		// Oracle Public and Private Key
+		const privateKey = PrivateKey.fromBase58(process.env.PRIVATE_KEY);
+		const publicKey = privateKey.toPublicKey();
 
-		const signature = Signature.create(privateKey, [
-			Field(emailHash),
-			Field(amount),
-		]);
+		const amount = 1;
+
+		const emailHashCircuit = CircuitString.fromString(messageId);
+		const signedDataFields = emailHashCircuit.toFields().concat(UInt32.from(amount).toFields());
+		console.log('Poseidon hash: ', Poseidon.hash(signedDataFields).toString());
+
+		//const signature = Signature.create(privateKey, [Poseidon.hash(signedDataFields)]);
+		const signature = Signature.create(privateKey, [Field(amount)]); // need to figure out a way to pass Poseidon hash
 
 		res.send({
-			data: { emailHash, amount },
+			data: { emailHash: messageId, amount: amount },
 			signature: signature,
 			publicKey: publicKey,
 		});
