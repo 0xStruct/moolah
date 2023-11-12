@@ -13,11 +13,11 @@ For quick overview, please refer to the walkthrough video.
 
 https://vimeo.com/
 
-[image of walkthrough video]
+![image of walkthrough video](/images/)
 
 Email is intutitive and seamless UX for majority of internet users. In addition to its personal and privacy characteristics, email has various verification standards (SPF, DKIM, DMARC, Arc, etc) incorporated. Among them, **Mina Email** leverages DKIM (DomainKeys Identified Mail) which provides signature on email and its metadata for verification. More about DKIM be read here: https://www.proofpoint.com/us/threat-reference/dkim
 
-[image of how dkim works]
+![image of how dkim works](/images/dkim.png)
 
 Hence, this project is just the start on how email could unravel numerous use cases for Mina ecosystem. Now, users just need to dig into gold mine of email inside their inboxes to use as various forms of proof permissionlessly and privately.
 
@@ -54,13 +54,13 @@ Furthermore, appreactions to tutorials in Mina documentation and Vedant Chainani
 
 I have always been obsessed with email as powerful command center and UI/UX. How might I transfer $Mina to anyone with an email address just by sending an email?
 
-[image of email received]
+![image of email received](/images/claim-email.png)
 
 With that inquisition, this project is built. 
 
 The oracle service would verify that email is sent from me to the recipient who is presenting the email as proof, then check in the subject for the amount of $Mina to give to the recipient. If everything is right, then sign the email id and amount.
 
-[image of email raw content]
+![image of email raw content](/images/claim-email-raw.png)
 
 Then the recipient would use the signature to claim $Mina from the smart contract which will send $Mina to the recipient and and record in nullifier Merkle Tree to ensure single claim.
 
