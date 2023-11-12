@@ -8,8 +8,8 @@ import minaEmailLogo from '../../public/assets/mina-email.png';
 import arrowRightSmall from '../../public/assets/arrow-right-small.svg';
 
 export default function Home() {
+  const [response, setResponse] = useState('');
 
-  const [email, setEmail] = useState('');
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const handleVerifyButtonClick = (event: any) => {
@@ -18,7 +18,6 @@ export default function Home() {
     console.log(textareaRef.current?.value);
 
     verifyWithOracle(textareaRef.current?.value!);
-    
   };
 
   async function verifyWithOracle(email: string) {
@@ -32,7 +31,10 @@ export default function Home() {
       },
     });
 
-    const { data, signature } = await res.json();
+    const { data, signature, message } = await res.json();
+
+    if(message) setResponse('verification failed. tampered email.');
+    else setResponse(JSON.stringify({data, signature}));
 
 	  console.log('data: ', data);
 	  console.log('signature: ', signature);
@@ -49,8 +51,8 @@ export default function Home() {
         <main className={styles.main}>
           <div className={styles.center}>
             <a
-              href="https://minaprotocol.com/"
-              target="_blank"
+              href="/"
+              target="_self"
               rel="noopener noreferrer"
             >
               <Image
@@ -93,6 +95,9 @@ export default function Home() {
               </h2>
             </a>
 
+          </div>
+          <div>
+            <p className={styles.textarea}>{response}</p>
           </div>
         </main>
       </GradientBG>

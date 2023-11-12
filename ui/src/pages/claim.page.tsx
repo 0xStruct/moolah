@@ -28,8 +28,8 @@ export default function Home() {
         <main className={styles.main}>
           <div className={styles.center}>
             <a
-              href="https://minaprotocol.com/"
-              target="_blank"
+              href="/"
+              target="_self"
               rel="noopener noreferrer"
             >
               <Image
