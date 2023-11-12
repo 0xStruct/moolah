@@ -5,11 +5,21 @@
 
 **Mina Email** verifies DKIM signature of emails and their content as verified credentials to unravel many interesting use-cases for Mina ZK.
 
-Email is an integral part of our connected world... Email is the identity as well as entry point to access various other web2 services (communication, social, ecommerce, etc). With **Mina Email** web3 is now just an email away (doing away with unintuitive pass phrases) while web3 can now leverage existing web2 identities and data as verified by email's DKIM signature.
+Email is an integral part of our connected world... Email is the identity as well as entry point to access various other web2 services (communication, social, ecommerce, etc).
+
+With **Mina Email** web3 is now just an email away (doing away with unintuitive pass phrases) while web3 can now leverage existing web2 identities and data as verified by email's DKIM signature.
+
+For quick overview, please refer to the walkthrough video.
+
+https://vimeo.com/
+
+[image of walkthrough video]
 
 Email is intutitive and seamless UX for majority of internet users. In addition to its personal and privacy characteristics, email has various verification standards (SPF, DKIM, DMARC, Arc, etc) incorporated. Among them, **Mina Email** leverages DKIM (DomainKeys Identified Mail) which provides signature on email and its metadata for verification. More about DKIM be read here: https://www.proofpoint.com/us/threat-reference/dkim
 
-Hence, this project is just the start on how email could unravel numerous use cases for Mina ecosystem.
+[image of how dkim works]
+
+Hence, this project is just the start on how email could unravel numerous use cases for Mina ecosystem. Now, users just need to dig into gold mine of email inside their inboxes to use as various forms of proof permissionlessly and privately.
 
 ## How does it work?
 
@@ -44,13 +54,17 @@ Furthermore, appreactions to tutorials in Mina documentation and Vedant Chainani
 
 I have always been obsessed with email as powerful command center and UI/UX. How might I transfer $Mina to anyone with an email address just by sending an email?
 
+[image of email received]
+
 With that inquisition, this project is built. 
 
 The oracle service would verify that email is sent from me to the recipient who is presenting the email as proof, then check in the subject for the amount of $Mina to give to the recipient. If everything is right, then sign the email id and amount.
 
+[image of email raw content]
+
 Then the recipient would use the signature to claim $Mina from the smart contract which will send $Mina to the recipient and and record in nullifier Merkle Tree to ensure single claim.
 
-Please refer to `contracts` and `oracle` folders for code. Each folder has its own `README.md` file.
+Please refer to `contracts`, `oracle` and `ui` folders for code. Each folder has its own `README.md` file.
 
 ### Project #2 - Decentalized peer-to-peer commerce (TBC)
 
@@ -66,9 +80,7 @@ Can an email address become a Mina wallet so that various chain interactions cou
 
 ## How to run the project
 
-Please refer to `contracts` and `oracle` folders for code. Each folder has its own `README.md` file.
-
-For quick overview, refer to `GUIDE.md` for walkthrough video and further explanations.
+Please refer to `contracts`, `oracle` and `ui` folders for code. Each folder has its own `README.md` file.
 
 ## Tasks and Next steps
 
@@ -79,4 +91,5 @@ Please refer to `TASKS.md` for completed and planned tasks
 - Turn the oracle into a SDK for various use cases
 - Build more **Mina Email** apps (templates)
     - Mina P2P commerce, Mina Email wallet, etc
+
 
