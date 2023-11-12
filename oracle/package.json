@@ -5,7 +5,7 @@
 	"main": "mina-email-oracle.js",
 	"scripts": {
 		"start": "ts-node ./mina-email-oracle.ts",
-		"start:prod": "npm run build && node ./mina-email-oracle.ts",
+		"start:prod": "npm run build && node ./dist/mina-email-oracle.js",
 		"build": "npx tsc"
 	},
 	"keywords": [],
