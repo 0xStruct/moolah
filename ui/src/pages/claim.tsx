@@ -1,6 +1,7 @@
 
 import Head from 'next/head.js';
 import Image from 'next/image.js';
+import Link from 'next/link.js';
 import { useEffect, useState, useRef } from 'react';
 import GradientBG from '../components/GradientBG.js';
 import styles from '../styles/Home.module.css';
@@ -27,7 +28,7 @@ export default function Claim() {
       <GradientBG>
         <main className={styles.main}>
           <div className={styles.center}>
-            <a
+            <Link
               href="/"
               target="_self"
               rel="noopener noreferrer"
@@ -39,7 +40,7 @@ export default function Claim() {
                 width="80"
                 priority
               />
-            </a>
+            </Link>
             <p className={styles.tagline}>
               built with
               <code className={styles.code}> o1js</code>
@@ -53,7 +54,7 @@ export default function Claim() {
           </p>
           <br />
           <div className={styles.grid1}>
-            <a
+            <Link
               href="#"
               className={styles.card}
               onClick={handleClaimButtonClick}
@@ -70,7 +71,8 @@ export default function Claim() {
                   />
                 </div>
               </h2>
-            </a>
+              <p></p>
+            </Link>
 
           </div>
         </main>

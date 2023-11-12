@@ -1,6 +1,7 @@
 
 import Head from 'next/head.js';
 import Image from 'next/image.js';
+import Link from 'next/link.js';
 import { useEffect, useState, useRef } from 'react';
 import GradientBG from '../components/GradientBG.js';
 import styles from '../styles/Home.module.css';
@@ -21,7 +22,7 @@ export default function Verify() {
   };
 
   async function verifyWithOracle(email: string) {
-    const res = await fetch('http://localhost:3001', {
+    const res = await fetch('https://mina-email-oracle.up.railway.app', {
       method: 'POST',
       body: JSON.stringify({
         email: email,
@@ -50,7 +51,7 @@ export default function Verify() {
       <GradientBG>
         <main className={styles.main}>
           <div className={styles.center}>
-            <a
+            <Link
               href="/"
               target="_self"
               rel="noopener noreferrer"
@@ -62,7 +63,7 @@ export default function Verify() {
                 width="80"
                 priority
               />
-            </a>
+            </Link>
             <p className={styles.tagline}>
               built with
               <code className={styles.code}> o1js</code>
@@ -76,7 +77,7 @@ export default function Verify() {
           </p>
           <br />
           <div className={styles.grid1}>
-            <a
+            <Link
               href="#"
               className={styles.card}
               onClick={handleVerifyButtonClick}
@@ -93,7 +94,8 @@ export default function Verify() {
                   />
                 </div>
               </h2>
-            </a>
+              <p></p>
+            </Link>
 
           </div>
           <div>

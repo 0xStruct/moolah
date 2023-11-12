@@ -1,6 +1,7 @@
 
 import Head from 'next/head.js';
 import Image from 'next/image.js';
+import Link from 'next/link.js';
 import { useEffect } from 'react';
 import GradientBG from '../components/GradientBG.js';
 import styles from '../styles/Home.module.css';
@@ -37,7 +38,7 @@ export default function Home() {
       <GradientBG>
         <main className={styles.main}>
           <div className={styles.center}>
-            <a
+            <Link
               href="https://minaprotocol.com/"
               target="_blank"
               rel="noopener noreferrer"
@@ -49,7 +50,7 @@ export default function Home() {
                 width="80"
                 priority
               />
-            </a>
+            </Link>
             <p className={styles.tagline}>
               built with
               <code className={styles.code}> o1js</code>
@@ -62,7 +63,7 @@ export default function Home() {
           </p>
           <br /><br />
           <div className={styles.grid}>
-            <a
+            <Link
               href="/verify"
               className={styles.card}
               target="_self"
@@ -81,8 +82,8 @@ export default function Home() {
                 </div>
               </h2>
               <p>Get email verified for proof</p>
-            </a>
-            <a
+            </Link>
+            <Link
               href="/claim"
               className={styles.card}
               target="_self"
@@ -101,7 +102,7 @@ export default function Home() {
                 </div>
               </h2>
               <p>Use proof to claim $Mina</p>
-            </a>
+            </Link>
           </div>
         </main>
       </GradientBG>
