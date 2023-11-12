@@ -7,7 +7,7 @@ import styles from '../styles/Home.module.css';
 import minaEmailLogo from '../../public/assets/mina-email.png';
 import arrowRightSmall from '../../public/assets/arrow-right-small.svg';
 
-export default function Home() {
+export default function Claim() {
 
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
