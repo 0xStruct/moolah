@@ -12,6 +12,8 @@ Otherwise, it updates the root and sends the specified $Mina to the claimant.
 
 ## How to try out the contract
 
+You need to update `MINA_EMAIL_ORACLE_PUBLIC_KEY` in `MinaEmailClaim.ts` file if your oracle server is running with different keypair.
+
 ```
 npm install
 
@@ -42,4 +44,5 @@ the format of proof is as below,
   "publicKey": "B62qpjadaypxXev6SUbYZboJAZdu3dYEbTm9geYM2XciYXGx3ZqpFGt"
 }
 ```
+
 
