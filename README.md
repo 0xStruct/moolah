@@ -11,9 +11,9 @@ With **Mina Email** web3 is now just an email away (doing away with unintuitive 
 
 For quick overview, please refer to the walkthrough video.
 
-https://vimeo.com/
+https://vimeo.com/883681293
 
-![image of walkthrough video](/images/)
+[![image of walkthrough video](/images/video.png)](https://vimeo.com/883681293)
 
 Email is intutitive and seamless UX for majority of internet users. In addition to its personal and privacy characteristics, email has various verification standards (SPF, DKIM, DMARC, Arc, etc) incorporated. Among them, **Mina Email** leverages DKIM (DomainKeys Identified Mail) which provides signature on email and its metadata for verification. More about DKIM be read here: https://www.proofpoint.com/us/threat-reference/dkim
 
@@ -91,5 +91,6 @@ Please refer to `TASKS.md` for completed and planned tasks
 - Turn the oracle into a SDK for various use cases
 - Build more **Mina Email** apps (templates)
     - Mina P2P commerce, Mina Email wallet, etc
+
 
 
