@@ -24,6 +24,13 @@ Below are completed and planned tasks
 
 ## Mina Email Apps
 - [x] Show email, claim $Mina
+- [ ] Proof of participations
 - [ ] P2P commerce (proof transfer to domain or fiat via email)
 - [ ] Mina wallet via email
 - [ ] brainstorm for more ideas and list here
+
+## Leveraging Circom 2
+- [ ] research and make an implementation plan
+- [ ] work on a POC
+- [ ] finalize
+
