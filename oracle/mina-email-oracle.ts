@@ -143,6 +143,11 @@ app.post('/', async (req: Request, res: Response) => {
 		else verifyFailedMessage = info.split(' ')[0];
 	}
 
+	// to templatize email specific validations
+	// in addition to checking about DKIM validation
+	// we need to check email source, regexes for subject and content
+	// next step is to define validations using Zod library
+
 	if (verifyFailed === false) {
 		// get email metadata such as to, from, subject
 		const headers = parseHeaders(email);
@@ -159,10 +164,6 @@ app.post('/', async (req: Request, res: Response) => {
 		}
 
 		console.log('Email metadata: ', from, messageId, subject);
-
-		// Oracle Public and Private Key
-		const privateKey = PrivateKey.fromBase58(process.env.PRIVATE_KEY);
-		const publicKey = privateKey.toPublicKey();
 
 		const amount = 1;
 
